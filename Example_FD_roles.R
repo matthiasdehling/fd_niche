@@ -15,9 +15,9 @@ traits <-  list(read.table("Data/PlantTraitsNW1.txt", header=TRUE, row.names=1),
 
 source_directory <- paste(getwd(),"/Functions", sep="")
 
-source("Functions/FD_roles.r")            # Main function  (FDbase, FDsum, species' contributions, niche centroids)
-source("Functions/beta_FD_networks.r")    # Community level beta diversity (beta FDsum, beta FDbase)
-source("Functions/beta_FD_species.r")     # Species level beta diversity (overlap between the PRNs of individual species from all communities)
+source("Functions/FD_roles.R")            # Main function  (FDbase, FDsum, species' contributions, niche centroids)
+source("Functions/beta_FD_networks.R")    # Community level beta diversity (beta FDsum, beta FDbase)
+source("Functions/beta_FD_species.R")     # Species level beta diversity (overlap between the PRNs of individual species from all communities)
 
 
 # Tests

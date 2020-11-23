@@ -48,8 +48,8 @@ library(bipartite)
 library(geometry)      
 library(Matrix)
 
-# Load functions (make sure inhull.r is in the same directory as FD_niche.r)
-source(paste(source_directory,"/inhull.r", sep=""))
+# Load functions (make sure inhull.R is in the same directory as FD_niche.R)
+source(paste(source_directory,"/inhull.R", sep=""))
   
   
 #########################################################################
@@ -290,7 +290,7 @@ for (i in seq(1, length(niche.coord))){
 
   }  
 
-  head(niche.points)
+  # head(niche.points)
   species = unique(niche.coord[[i]]$CONSUMER)
   colnames(niche.points) <- species
   
@@ -343,15 +343,17 @@ for (i in seq(1, length(niche.coord))){
 
   
   # Compile the results in two ways: per assemblage (FD_1) and per index (FD_2)
-  FD_1[[i]] = list(FD.sum        = FD.sum, 
-                 fd.base         = FD.base, 
-                 contrib.sum     = ctrb.sum, 
-                 contrib.base    = ctrb.base,
-                 niche.points    = niche.points,
-                 niche.coord     = niche.coord[[i]],
-                 niche.centroids = niche.centroids[[i]],
-                 orig.niche.coord= orig.niche.coord[[i]],
-                 row.sum         = rowSums(niche.points))
+  FD_1[[i]] = list(
+    fd.sum          = FD.sum,
+    fd.base         = FD.base,
+    contrib.sum     = ctrb.sum,
+    contrib.base    = ctrb.base,
+    niche.points    = niche.points,
+    niche.coord     = niche.coord[[i]],
+    niche.centroids = niche.centroids[[i]],
+    orig.niche.coord= orig.niche.coord[[i]],
+    row.sum         = rowSums(niche.points)
+  )
 
   FD_2$fd.sum[[i]]          = FD.sum 
   FD_2$fd.base[[i]]         = FD.base
